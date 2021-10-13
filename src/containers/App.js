@@ -4,7 +4,12 @@ import Navigation from "../components/Navigation/Navigation";
 import "tachyons";
 
 function App() {
-  return <Navigation />;
+  return (
+    <div className="App">
+      <Navigation />
+      <Logo />
+    </div>
+  );
 }
 
 export default App;
