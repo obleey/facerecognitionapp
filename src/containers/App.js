@@ -5,6 +5,7 @@ import ImageLinkForm from '../components/ImageLinkForm/ImageLinkForm';
 import Rank from '../components/Rank/Rank';
 import Particles from 'react-particles-js';
 import 'tachyons';
+import { useState } from 'react';
 
 const particlesOptions = {
   particles: {
@@ -57,7 +58,7 @@ const particlesOptions = {
     },
     move: {
       enable: true,
-      speed: 6,
+      speed: 2,
       direction: 'none',
       random: false,
       straight: false,
@@ -74,8 +75,8 @@ const particlesOptions = {
     detect_on: 'canvas',
     events: {
       onhover: {
-        enable: true,
-        mode: 'repulse',
+        enable: false,
+        mode: 'none',
       },
       onclick: {
         enable: true,
@@ -113,13 +114,22 @@ const particlesOptions = {
 };
 
 function App() {
+  const [input, setInput] = useState();
+
+  const oninputChange = (event) => {
+    console.log(event.target.value);
+  };
+
+  const onSubmit = () => {
+    console.log('click');
+  };
   return (
     <div className="App">
       <Particles className="particles" params={particlesOptions} />
       <Navigation />
       <Logo />
       <Rank />
-      <ImageLinkForm />
+      <ImageLinkForm onInputChange={oninputChange} onButtonSubmit={onSubmit} />
     </div>
   );
 }
