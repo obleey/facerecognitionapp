@@ -3,6 +3,7 @@ import Logo from '../components/Logo/Logo';
 import Navigation from '../components/Navigation/Navigation';
 import ImageLinkForm from '../components/ImageLinkForm/ImageLinkForm';
 import Rank from '../components/Rank/Rank';
+import FaceRecognition from '../components/FaceRecognition/FaceRecognition';
 import Particles from 'react-particles-js';
 import 'tachyons';
 import { useState } from 'react';
@@ -146,6 +147,7 @@ function App() {
       <Logo />
       <Rank />
       <ImageLinkForm onInputChange={oninputChange} onButtonSubmit={onSubmit} />
+      <FaceRecognition imageLink="" />
     </div>
   );
 }
