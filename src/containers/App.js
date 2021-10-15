@@ -6,6 +6,9 @@ import Rank from '../components/Rank/Rank';
 import Particles from 'react-particles-js';
 import 'tachyons';
 import { useState } from 'react';
+import Clarifai from 'clarifai';
+
+const app = new Clarifai.App({});
 
 const particlesOptions = {
   particles: {
@@ -113,12 +116,6 @@ const particlesOptions = {
   },
 };
 
-const Clarifai = require('clarifai');
-
-const app = new Clarifai.App({
-  apiKey: 'YOUR_API_KEY',
-});
-
 function App() {
   const [input, setInput] = useState();
 
@@ -128,6 +125,19 @@ function App() {
 
   const onSubmit = () => {
     console.log('click');
+    app.models
+      .predict(
+        'a403429f2ddf4b49b307e318f00e528b',
+        'https://upload.wikimedia.org/wikipedia/commons/2/2a/Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%2C_2%29.jpg'
+      )
+      .then(
+        function (response) {
+          console.log(response);
+        },
+        function (err) {
+          console.log(err);
+        }
+      );
   };
   return (
     <div className="App">
