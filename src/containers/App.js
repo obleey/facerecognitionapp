@@ -133,7 +133,7 @@ function App() {
     return {
       leftCol: clarifyFace.left_col * width,
       topRow: clarifyFace.top_row * height,
-      righCol: width - clarifyFace.right_col * width,
+      rightCol: width - clarifyFace.right_col * width,
       bottomRow: height - clarifyFace.bottom_row * height,
     };
   };
