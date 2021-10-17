@@ -1,4 +1,5 @@
 import React from 'react';
+import './FaceRecognition.css';
 
 const FaceRecognition = ({ box, imageLink }) => {
   return (
@@ -12,6 +13,15 @@ const FaceRecognition = ({ box, imageLink }) => {
           height="auto"
         />
       </div>
+      <div
+        className="bounding-box"
+        style={{
+          top: box.topRow,
+          right: box.righCol,
+          bottom: box.bottomRow,
+          left: box.leftCol,
+        }}
+      ></div>
     </div>
   );
 };

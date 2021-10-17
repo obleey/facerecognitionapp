@@ -139,7 +139,6 @@ function App() {
   };
 
   const displayFaceBox = (box) => {
-    console.log(box);
     setBox(box);
   };
   const oninputChange = (event) => {
