@@ -9,6 +9,7 @@ import 'tachyons';
 import { useState } from 'react';
 import Clarifai from 'clarifai';
 
+//Get your onw api key from clarifai
 const app = new Clarifai.App({});
 
 const particlesOptions = {
@@ -118,27 +119,23 @@ const particlesOptions = {
 };
 
 function App() {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
 
   const oninputChange = (event) => {
-    console.log(event.target.value);
+    setInput(event.target.value);
   };
 
   const onSubmit = () => {
-    console.log('click');
-    app.models
-      .predict(
-        'a403429f2ddf4b49b307e318f00e528b',
-        'https://upload.wikimedia.org/wikipedia/commons/2/2a/Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%2C_2%29.jpg'
-      )
-      .then(
-        function (response) {
-          console.log(response);
-        },
-        function (err) {
-          console.log(err);
-        }
-      );
+    setImageUrl(input);
+    app.models.predict(Clarifai.COLOR_MODEL, input).then(
+      function (response) {
+        console.log(response);
+      },
+      function (err) {
+        console.log(err);
+      }
+    );
   };
   return (
     <div className="App">
@@ -147,7 +144,7 @@ function App() {
       <Logo />
       <Rank />
       <ImageLinkForm onInputChange={oninputChange} onButtonSubmit={onSubmit} />
-      <FaceRecognition imageLink="" />
+      <FaceRecognition imageLink={imageUrl} />
     </div>
   );
 }
