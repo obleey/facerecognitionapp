@@ -10,7 +10,7 @@ import { useState } from 'react';
 import Clarifai from 'clarifai';
 
 //Get your onw api key from clarifai
-const app = new Clarifai.App({});
+const app = new Clarifai.App({ apiKey:  });
 
 const particlesOptions = {
   particles: {
@@ -128,9 +128,11 @@ function App() {
 
   const onSubmit = () => {
     setImageUrl(input);
-    app.models.predict(Clarifai.COLOR_MODEL, input).then(
+    app.models.predict(Clarifai.FACE_DETECT_MODEL, input).then(
       function (response) {
-        console.log(response);
+        console.log(
+          response.outputs[0].data.regions[0].region_info.bounding_box
+        );
       },
       function (err) {
         console.log(err);
