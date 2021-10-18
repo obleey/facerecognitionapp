@@ -7,7 +7,7 @@ The Complete Web Developer in 2021: Zero to Mastery. This is the Frontend part o
 2. Run `npm install`
 3. Run `npm start`
 
-Stack used:
+Libraries/framework used:
 
 
 [React](https://reactjs.org/)
