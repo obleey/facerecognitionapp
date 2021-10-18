@@ -7,7 +7,7 @@ The Complete Web Developer in 2021: Zero to Mastery. This is the Frontend part o
 2. Run `npm install`
 3. Run `npm start`
 
-Libraries/framework used:
+**Libraries/framework used:**
 
 
 [React](https://reactjs.org/)
@@ -16,7 +16,7 @@ Libraries/framework used:
 
 [Particles](https://particles.js.org/)
 
-Face detection API:
+**API's used:**
 
 [Clarifai Face detection model](https://www.clarifai.com/models/ai-face-detection)
 
