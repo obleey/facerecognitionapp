@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Signin = (props) => {
+const SignIn = (props) => {
   const { onRouteChange } = props;
   const [signInEmail, setsignInEmail] = useState('');
   const [signInPassword, setsignInPassword] = useState('');
@@ -83,4 +83,4 @@ const Signin = (props) => {
   );
 };
 
-export default Signin;
+export default SignIn;
