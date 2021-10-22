@@ -20,13 +20,13 @@ const Signin = ({ onRoutChange }) => {
         email: signInEmail,
         password: signInPassword,
       }),
-    });
-    .then((response) => response.json)
-    .then((data) => {
-      if (data === 'success') {
-        onRoutChange('home');
-      }
-    });
+    })
+      .then((response) => response.json)
+      .then((data) => {
+        if (data === 'success') {
+          onRoutChange('home');
+        }
+      });
     // onRoutChange('home');
   };
 
