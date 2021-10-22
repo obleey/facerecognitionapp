@@ -12,7 +12,7 @@ import { useState } from 'react';
 import Clarifai from 'clarifai';
 
 //Get your onw api key from clarifai
-const app = new Clarifai.App({ apiKey: });
+const app = new Clarifai.App({ apiKey: 'YOUR_API_KEY' });
 
 const particlesOptions = {
   particles: {
@@ -181,7 +181,7 @@ function App() {
           <FaceRecognition box={box} imageLink={imageUrl} />
         </div>
       ) : route === 'signin' ? (
-        <Signin onRoutChange={onRouteChange} />
+        <Signin onRouteChange={onRouteChange} />
       ) : (
         <Register onRoutChange={onRouteChange} />
       )}
