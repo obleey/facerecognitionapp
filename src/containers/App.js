@@ -172,7 +172,20 @@ function App() {
     setImageUrl(input);
     app.models
       .predict(Clarifai.FACE_DETECT_MODEL, input)
-      .then((response) => displayFaceBox(calculateFaceLocation(response)))
+      .then((response) => {
+        fetch('http://localhost:3000/image', {
+          method: 'put',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: user.id,
+          }),
+        })
+          .then((response) => response.json())
+          .then((count) => {
+            setUser(Object.assign(user, { entries: count }));
+          });
+        displayFaceBox(calculateFaceLocation(response));
+      })
       .catch((err) => console.log(err));
   };
 
