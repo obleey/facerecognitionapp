@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation/Navigation';
 import ImageLinkForm from '../components/ImageLinkForm/ImageLinkForm';
 import Rank from '../components/Rank/Rank';
 import FaceRecognition from '../components/FaceRecognition/FaceRecognition';
-import Signin from '../components/Signin/Signin';
+import SignIn from '../components/Signin/Signin';
 import Register from '../components/Register/Register';
 import Particles from 'react-particles-js';
 import 'tachyons';
@@ -12,7 +12,7 @@ import { useState } from 'react';
 import Clarifai from 'clarifai';
 
 //Get your onw api key from clarifai
-const app = new Clarifai.App({ apiKey: 'YOUR_API_KEY' });
+const app = new Clarifai.App({ apiKey: });
 
 const particlesOptions = {
   particles: {
@@ -181,7 +181,7 @@ function App() {
           <FaceRecognition box={box} imageLink={imageUrl} />
         </div>
       ) : route === 'signin' ? (
-        <Signin onRouteChange={onRouteChange} />
+        <SignIn onRouteChange={onRouteChange} />
       ) : (
         <Register onRoutChange={onRouteChange} />
       )}
