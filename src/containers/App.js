@@ -9,10 +9,8 @@ import Register from '../components/Register/Register';
 import Particles from 'react-particles-js';
 import 'tachyons';
 import { useState } from 'react';
-import Clarifai from 'clarifai';
 
 //Get your onw api key from clarifai
-const app = new Clarifai.App({ apiKey: });
 
 const particlesOptions = {
   particles: {
