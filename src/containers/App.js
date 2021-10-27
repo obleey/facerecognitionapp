@@ -150,7 +150,6 @@ function App() {
     const image = document.getElementById('inputImage');
     const width = Number(image.width);
     const height = Number(image.height);
-    console.log(width, height);
     return {
       leftCol: clarifyFace.left_col * width,
       topRow: clarifyFace.top_row * height,
