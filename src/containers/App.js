@@ -122,6 +122,7 @@ function App() {
   const [input, setInput] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [box, setBox] = useState({});
+  const [image, setImage] = useState({});
   const [route, setRoute] = useState('signin');
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [user, setUser] = useState({
@@ -168,16 +169,16 @@ function App() {
 
   const onSubmit = () => {
     setImageUrl(input);
-    app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, input)
-      .then((response) => {
-        fetch('http://localhost:3000/image', {
-          method: 'put',
+	    fetch('http://localhost:3000/imageurl', {
+          method: 'post',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            id: user.id,
+            input: input
           }),
         })
+	.then(response=> response.json())
+      .then((response) => {
+    
           .then((response) => response.json())
           .then((count) => {
             setUser(Object.assign(user, { entries: count }));
