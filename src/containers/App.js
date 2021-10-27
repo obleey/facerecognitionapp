@@ -12,7 +12,7 @@ import { useState } from 'react';
 import Clarifai from 'clarifai';
 
 //Get your onw api key from clarifai
-const app = new Clarifai.App({ apiKey:  });
+const app = new Clarifai.App({ apiKey: });
 
 const particlesOptions = {
   particles: {
@@ -192,6 +192,14 @@ function App() {
   const onRouteChange = (route) => {
     if (route === 'signout') {
       setIsSignedIn(false);
+      setUser({
+        id: '',
+        name: '',
+        email: '',
+        password: '',
+        entries: 0,
+        joined: '',
+      });
     } else if (route === 'home') {
       setIsSignedIn(true);
     }
