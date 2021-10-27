@@ -122,7 +122,6 @@ function App() {
   const [input, setInput] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [box, setBox] = useState({});
-  const [image, setImage] = useState({});
   const [route, setRoute] = useState('signin');
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [user, setUser] = useState({
@@ -169,21 +168,29 @@ function App() {
 
   const onSubmit = () => {
     setImageUrl(input);
-	    fetch('http://localhost:3000/imageurl', {
-          method: 'post',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            input: input
-          }),
-        })
-	.then(response=> response.json())
+    fetch('http://localhost:3000/imageurl', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        input: input,
+      }),
+    })
+      .then((response) => response.json())
       .then((response) => {
-    
-          .then((response) => response.json())
-          .then((count) => {
-            setUser(Object.assign(user, { entries: count }));
-          });
-        displayFaceBox(calculateFaceLocation(response));
+        if (response) {
+          fetch('http://localhost:3000/image', {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: user.id,
+            }),
+          })
+            .then((response) => response.json())
+            .then((count) => {
+              setUser(Object.assign(user, { entries: count }));
+            });
+          displayFaceBox(calculateFaceLocation(response));
+        }
       })
       .catch((err) => console.log(err));
   };
