@@ -17,9 +17,11 @@ The Complete Web Developer in 2021: Zero to Mastery. This is the Frontend part o
 
 [Particles](https://particles.js.org/)
 
-All contributions are welcome. To contribute, simply `fork` the repo and do your magic.
 
 The final project has been deployed (along with the [Smart-brain API](https://github.com/obleey/smart-brain-api) to Heroku and is available here:
+
 [Facerecognitionapp](https://miha-facerecognitionapp.herokuapp.com/)
 
 Have fun :)))
+
+All contributions are welcome. To contribute, simply `fork` the repo and do your magic.
