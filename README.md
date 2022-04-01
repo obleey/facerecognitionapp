@@ -16,8 +16,7 @@ This App is integrated with the [Clarifai Face Recognition API](https://www.clar
 
 ## If I had more time I would change this  
 - Write all tests using Jest
-- Since I realized that more and more projects don't use Redux anymore, i would implement GraphQL or  
-react-query for data managment.
+- I would implement GraphQL or react-query for data managment.
  
 ## Available Scripts  
 First of all clone or fork this repo and install all the needed dependencies using `npm` or `yarn`
